@@ -1,0 +1,41 @@
+<script lang="ts">
+    import axios from 'axios';
+    import type { PageData } from './$types';
+    export let data: PageData;
+
+    let pass_data = {rank: 0, score: 0}
+
+    async function load(){
+        const response = await axios.get('https://api.dookeystats.com/pass/' + data.pass_id);
+        const json = await response.data;
+        pass_data = json
+    }
+    load()
+    setInterval(load, 3000)
+</script>
+
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+     :global(body) {
+		background-color: black;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+		color: rgba(255, 255, 255, 0.7);
+		transition: background-color 0.3s;
+        font-family: 'Roboto', sans-serif;
+	} 
+    .bubble {
+        background-color: purple;
+        max-width: 300px;
+        border-radius: 25px;
+    }
+    h1 {
+        padding-left: 30px;
+    }
+</style>
+
+<div class="bubble">
+<h1>Rank: #{pass_data.rank.toLocaleString("en-US")}</h1>
+<h1 style="margin-top: -20px;">Score: {pass_data.score.toLocaleString("en-US")}</h1>
+</div>
