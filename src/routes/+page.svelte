@@ -3,10 +3,16 @@
     import axios from 'axios'
     let selected = 'Highest First'
     let stats = {total_players: 0, total_runs: 0}
+    let apeSelect = 'ALL'
     let filters = [
         {id: 0, text: 'Highest First'},
 		{ id: 1, text: `Lowest First` },
 	];
+    const apeTypes = [
+        {id: 0, text: 'ALL'},
+		{ id: 1, text: `BAYC` },
+        { id: 1, text: `MAYC` },
+    ]
     let results = []
     let totals = {bayc: 0, mayc: 0}
     let tierStats = {1: 0, 2: 0, 3: 0, 4: 0}
@@ -58,6 +64,21 @@
         else {
             selected = 'Highest First'
             loadResults()
+        }
+    }
+    async function apeFilter(){
+        console.log(apeSelect)
+        if (apeSelect.text == 'ALL'){
+            const response = await axios.get('https://api.dookeystats.com/top500')
+            results = response.data
+        }
+        if (apeSelect.text == 'MAYC'){
+            const response = await axios.get('https://api.dookeystats.com/mayc')
+            results = response.data
+        }
+        if (apeSelect.text == 'BAYC'){
+            const response = await axios.get('https://api.dookeystats.com/bayc')
+            results = response.data
         }
     }
     // Interval to load data
@@ -157,6 +178,13 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
 <br><br>
     Sort Results: <select on:change="{toggle}">
 		{#each filters as filter}
+			<option value={filter}>
+				{filter.text}
+			</option>
+		{/each}
+	</select>
+    Ape Type: <select bind:value={apeSelect} on:change="{apeFilter}">
+		{#each apeTypes as filter}
 			<option value={filter}>
 				{filter.text}
 			</option>
