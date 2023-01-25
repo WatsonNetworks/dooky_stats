@@ -177,7 +177,7 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
     <span style="color: white;">Boosts Purchased: </span><br>
     <span style="font-size: 25px"> {boostData.boosts.toLocaleString("en-US")}</span><br><br>
     <span style="color: white;">$APE Spent: </span><br>
-    <span style="font-size: 25px"> {boostData.tokens.toLocaleString("en-US")} (${(boostData.tokens * 5.50).toLocaleString("en-US")})</span> 
+    <span style="font-size: 25px; vertical-align: middle;"> {boostData.tokens.toLocaleString("en-US")} <span style="font-size: 17px; vertical-align: middle;">(${(boostData.tokens * 5.50).toLocaleString("en-US")})</span></span> 
 </center>
 
 
