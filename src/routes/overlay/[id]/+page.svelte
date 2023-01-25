@@ -27,15 +27,20 @@
 	} 
     .bubble {
         background-color: purple;
-        max-width: 300px;
+        max-width: 190px;
         border-radius: 25px;
     }
-    h1 {
-        padding-left: 30px;
+    p {
+        margin: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 0px;
+        font-size: 25px;
     }
 </style>
 
 <div class="bubble">
-<h1>Rank: #{pass_data.rank.toLocaleString("en-US")}</h1>
-<h1 style="margin-top: -20px;">Score: {pass_data.score.toLocaleString("en-US")}</h1>
+<img style="" width="100%" src={pass_data.ape_img}>
+<p>Rank: #{pass_data.rank.toLocaleString("en-US")}</p>
+<p style="margin-top: -10px;">Score: {pass_data.score.toLocaleString("en-US")}</p>
 </div>
