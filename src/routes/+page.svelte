@@ -3,6 +3,7 @@
     import axios from 'axios'
     let selected = 'Highest First'
     let stats = {total_players: 0, total_runs: 0}
+    let boostData = {boosts: 0, tokens: 0}
     let apeSelect = 'ALL'
     let filters = [
         {id: 0, text: 'Highest First'},
@@ -22,6 +23,9 @@
         const response = await axios.get('https://api.dookeystats.com/stats')
         stats.total_players = response.data.total_players
         stats.total_runs = response.data.total_runs
+
+        const boostRequest = await axios.get('https://api.dookeystats.com/boosts')
+        boostData = boostRequest.data
     }
         catch (error) {
             console.log(error)
@@ -163,11 +167,19 @@
 <h1 style="margin: 0px;">Realtime Dookey Stats</h1><br>
 Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
 </center>
-<br><br>
+<br>
 <center>
 <span style="color: white;">Total Players: </span><span style="font-size: 25px"> {stats.total_players.toLocaleString("en-US")}</span>
 <span style="color: white;">Total Runs: </span><span style="font-size: 25px"> {stats.total_runs.toLocaleString("en-US")}</span>
+</center><br>
+
+<center>
+    <span style="color: white;">Boosts Purchased: </span><br>
+    <span style="font-size: 25px"> {boostData.boosts.toLocaleString("en-US")}</span><br><br>
+    <span style="color: white;">$APE Spent: </span><br>
+    <span style="font-size: 25px"> {boostData.tokens.toLocaleString("en-US")} (${(boostData.tokens * 5.50).toLocaleString("en-US")})</span> 
 </center>
+
 
 <center><h3>TOP 500 Breakdown:</h3> <span style="color: hotpink">BAYC:</span> {totals.bayc} | <span style="color: hotpink">MAYC:</span> {totals.mayc}<br><br></center>
 <center>
