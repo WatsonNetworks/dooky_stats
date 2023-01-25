@@ -202,18 +202,15 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
             {#if rank >= 10}<span class="rank" style="padding-left: 10px; padding-right: 10px; font-size: 35px;">{rank.toLocaleString("en-US")}</span>{/if}
         </span> 
     <span>
-        <img width="100px" src={ape_img}>
-        <MediaQuery query="(max-width: 480px)" let:matches>
-            {#if matches}
-            <span style="margin-left: 20%; font-size: 15px;">TIER {tier}</span>
-            {/if}
-            {#if !matches}
-        <img style="margin-left: -5px; border-radius: 5px;" width="100px" src={tiers[tier]}>
-        {/if}
-    </MediaQuery>
+        <img width="100px" style="margin-right: 15px;" src={ape_img}>
     </span>
-
-    <span class="data" style="display:table-cell; vertical-align:middle; font-size: 20px; padding-left: 15px;">{score.toLocaleString("en-US")} Points<br>
+    
+    <MediaQuery query="(max-width: 480px)" let:matches>
+        {#if !matches}
+    <img style="margin-left: -15px; border-radius: 5px;" width="100px" src={tiers[tier]}>
+    {/if}
+</MediaQuery>
+    <span class="data" style="display:table-cell; vertical-align:middle; font-size: 20px; padding-left: 25px;">{score.toLocaleString("en-US")} Points<br>
         
     {#if username }<span style="font-size: 15px; text-decoration: bold">
         {#if username == 'BitBoyJay' }<img src="/salute.svg" width="15px" style="justify-content: center; align-items: center;">{/if}
@@ -224,7 +221,16 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
     </span><br>{/if}
     <!-- (${ ((boost_count * 2)*5.80).toFixed()}) -->
     <span style="font-size: 15px;">Boosted: {boost_count ? boost_count : 0} times </span><br>
-    <span style="font-size: 15px;">{ape_type.toUpperCase()} #{ape_id}</span></span>
+    <span style="font-size: 15px;">{ape_type.toUpperCase()} #{ape_id}</span>
+
+
+    <MediaQuery query="(max-width: 480px)" let:matches>
+        {#if matches}
+        <span style="margin-left: 0px; font-size: 15px;">(TIER {tier})</span>
+        {/if}
+</MediaQuery>
+</span>
+
 
 </div>
 </li>
