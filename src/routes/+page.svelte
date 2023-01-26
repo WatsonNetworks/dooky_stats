@@ -14,6 +14,14 @@
 		{ id: 1, text: `BAYC` },
         { id: 1, text: `MAYC` },
     ]
+    const tierFilters = [
+        {id: 0, text: 'ALL'},
+        { id: 1, text: `1` },
+        { id: 2, text: `2` },
+        { id: 3, text: `3` },
+        { id: 4, text: `4` },
+    ]
+    let currentTierFilter = 'ALL'
     let results = []
     let totals = {bayc: 0, mayc: 0}
     let tierStats = {1: 0, 2: 0, 3: 0, 4: 0}
@@ -84,6 +92,15 @@
             const response = await axios.get('https://api.dookeystats.com/bayc')
             results = response.data
         }
+    }
+    async function filterTier(){
+        if (currentTierFilter.text == 'ALL'){
+            const response = await axios.get('https://api.dookeystats.com/top500')
+            results = response.data
+            return
+        }
+        const response = await axios.get(`https://api.dookeystats.com/tier/${currentTierFilter.text}`)
+        results = response.data
     }
     // Interval to load data
     setInterval(load, 1000)
@@ -188,7 +205,7 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
     <span class="pink">TIER 3:</span> {tierStats[3]}<br>
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
-    Sort Results: <select on:change="{toggle}">
+    Score: <select on:change="{toggle}">
 		{#each filters as filter}
 			<option value={filter}>
 				{filter.text}
@@ -197,6 +214,13 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
 	</select>
     Ape Type: <select bind:value={apeSelect} on:change="{apeFilter}">
 		{#each apeTypes as filter}
+			<option value={filter}>
+				{filter.text}
+			</option>
+		{/each}
+	</select>
+    Tier: <select bind:value={currentTierFilter} on:change="{filterTier}">
+		{#each tierFilters as filter}
 			<option value={filter}>
 				{filter.text}
 			</option>
