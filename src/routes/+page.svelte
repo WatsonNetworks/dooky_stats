@@ -5,6 +5,8 @@
     let stats = {total_players: 0, total_runs: 0}
     let boostData = {boosts: 0, tokens: 0}
     let apeSelect = 'ALL'
+    let searchTerm = ''
+
     let filters = [
         {id: 0, text: 'Highest First'},
 		{ id: 1, text: `Lowest First` },
@@ -66,6 +68,14 @@
     async function loadLow(){
         const response = await axios.get('https://api.dookeystats.com/lowhigh')
         results = response.data
+    }
+    async function search(){
+        const response = await axios.get(`https://api.dookeystats.com/wallet/${searchTerm}`)
+        results = response.data
+    }
+    function resetSearch(){
+        searchTerm = ''
+        loadResults()
     }
     async function toggle(){
         console.log(selected)
@@ -226,6 +236,8 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
 			</option>
 		{/each}
 	</select>
+    <br><br>
+    Wallet: <input width="50%" type="text" bind:value={searchTerm} placeholder="Search by wallet"/><button on:click={search}>Search</button><button on:click={resetSearch}>Reset</button>
     <br><br>
 </center>
 
