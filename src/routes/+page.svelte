@@ -241,6 +241,10 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
     <br><br>
 </center>
 
+{#if results.length < 1 }
+<center><h1>NO MATCH FOUND</h1></center>
+{/if}
+
 {#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
 <div class="center">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
