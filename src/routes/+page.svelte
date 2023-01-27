@@ -190,12 +190,12 @@ Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>
 <span style="color: white;">Total Runs: </span><span style="font-size: 25px"> {stats.total_runs.toLocaleString("en-US")}</span>
 </center><br>
 
-<!-- <center>
+<center>
     <span style="color: white;">Boosts Purchased: </span><br>
     <span style="font-size: 25px"> {boostData.boosts.toLocaleString("en-US")}</span><br><br>
     <span style="color: white;">$APE Spent: </span><br>
     <span style="font-size: 25px; vertical-align: middle;"> {boostData.tokens.toLocaleString("en-US")} <span style="font-size: 17px; vertical-align: middle;">(${Math.round((boostData.tokens * 6.03)).toLocaleString("en-US")})</span></span> 
-</center> -->
+</center>
 
 
 <center><h3>TOP 500 Breakdown:</h3> <span style="color: hotpink">BAYC:</span> {totals.bayc} | <span style="color: hotpink">MAYC:</span> {totals.mayc}<br><br></center>
