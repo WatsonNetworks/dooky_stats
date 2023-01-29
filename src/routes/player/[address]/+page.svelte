@@ -205,14 +205,18 @@ a.button:hover {
 {/each}
 
 
-<center style="padding-top: 20px;"><h1>Boost Transactions</h1></center>
+<center style="margin-top: 40px; padding-bottom: 20px; font-size: 30px;">BOOST TRANSACTIONS</center>
 
 <center>
-   Transactions found: 
+   Transactions<br> 
     <span style="color: white;">{txs.length}</span>
 </center>
-<center style="padding-bottom: 30px;">
-    $APE Spent: 
+<center style="padding-top: 5px;">
+    Boosts Purchased<br> 
+     <span style="color: white;">{ape_spent/2}</span>
+ </center>
+<center style="padding-bottom: 30px; padding-top: 5px;">
+    $APE Spent<br> 
      <span style="color: white;">{ape_spent}</span>
  </center>
 
