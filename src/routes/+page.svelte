@@ -229,6 +229,8 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <span class="pink">TIER 3:</span> {tierStats[3]}<br>
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
+<a href="https://twitter.com/geeken" target="_blank"><img src="/ad.png" width="300px;" style="border-radius: 10px;"></a>
+<br><br>
     Score: <select on:change="{toggle}">
 		{#each filters as filter}
 			<option value={filter}>
