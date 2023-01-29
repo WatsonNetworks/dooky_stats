@@ -222,7 +222,7 @@ a.button:hover {
     <a href={`https://etherscan.io/tx/${tx.hash}`} target="_blank" title="View on Etherscan">
     <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
         <div style="display:table; padding: 10px;">
-        <span style="padding-right: 10px;">{timeSince(tx._timestamp)} ago</span><br> {tx.value/2} BOOSTS <span style="font-size: 12px;">({tx.value} $APE)</span>
+        <span style="padding-right: 10px; color: rgba(255, 255, 255, 0.7)">{timeSince(tx._timestamp)} ago</span><br><span style="color: white; padding-right: 5px;"> {tx.value/2} {(tx.value / 2) < 2 ? `Boost` : `Boosts`} </span> <span style="font-size: 12px;">({tx.value} $APE)</span>
         </div>
 </li>
 </a>
