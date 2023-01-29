@@ -260,8 +260,8 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
 {/if}
 
 {#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
-<a href={`/player/${address}`} title="View Player Data">
 <div class="center resultItem">
+<a href={`/player/${address}`} title="View Player Data">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
     <div style="display:table;">
         <span style="font-size: 50px; display:table-cell; vertical-align:middle;">
@@ -301,6 +301,6 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
 
 </div>
 </li>
-</div>
 </a>
+</div>
 {/each}
