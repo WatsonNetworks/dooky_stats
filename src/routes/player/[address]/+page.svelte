@@ -66,9 +66,9 @@ return Math.floor(seconds) + " seconds";
         font-family: 'Roboto', sans-serif;
 	} 
     .resultItem:hover {
-        -webkit-box-shadow:0 0 15px white; 
-        -moz-box-shadow: 0 0 15px white; 
-        box-shadow:0 0 15px white;
+        -webkit-box-shadow:0 0 12px white; 
+        -moz-box-shadow: 0 0 12px white; 
+        box-shadow:0 0 12px white;
         border-radius: 30px;
         -webkit-transition: background 0.3s, box-shadow 0.3s;
         transition: background 0.3s, box-shadow 0.3s;
@@ -221,7 +221,7 @@ a.button:hover {
  </center>
 
 {#each txs as tx, i}
-<div class="center">
+<div class="center resultItem">
     <center>
     <a href={`https://etherscan.io/tx/${tx.hash}`} target="_blank" title="View on Etherscan">
     <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
