@@ -145,9 +145,22 @@
 		transition: background-color 0.3s;
         font-family: 'Roboto', sans-serif;
 	} 
-    a {
+    .resultItem:hover {
+        -webkit-box-shadow:0 0 15px white; 
+        -moz-box-shadow: 0 0 15px white; 
+        box-shadow:0 0 15px white;
+        border-radius: 30px;
+        -webkit-transition: background 0.3s, box-shadow 0.3s;
+        transition: background 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .link {
   color: hotpink;
   text-decoration: none;
+}
+a {
+    color: unset;
+    text-decoration: none;
 }
 .center {
   margin: auto;
@@ -192,8 +205,8 @@
 </style>
 <center>
 <h1 style="margin: 0px;">Realtime Dookey Stats</h1><br>
-Created by: <a href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
-Looking for a stream overlay with your stats? <a href="https://twitter.com/geeken/status/1618190648871628800" target="_blank">Click Here</a>
+Created by: <a class="link" href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
+Looking for a stream overlay with your stats? <a class="link" href="https://twitter.com/geeken/status/1618190648871628800" target="_blank">Click Here</a>
 </center>
 <br>
 <center>
@@ -247,7 +260,8 @@ Looking for a stream overlay with your stats? <a href="https://twitter.com/geeke
 {/if}
 
 {#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
-<div class="center">
+<a href={`/player/${address}`} title="View Player Data">
+<div class="center resultItem">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
     <div style="display:table;">
         <span style="font-size: 50px; display:table-cell; vertical-align:middle;">
@@ -288,4 +302,5 @@ Looking for a stream overlay with your stats? <a href="https://twitter.com/geeke
 </div>
 </li>
 </div>
+</a>
 {/each}
