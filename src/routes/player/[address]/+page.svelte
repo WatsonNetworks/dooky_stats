@@ -3,11 +3,19 @@
     import MediaQuery from "../../MediaQuery.svelte";
     import type { PageData } from './$types';
     export let data: PageData;
+    let ape_spent = 0
     let results = []
+    let txs = []
     async function load(){
         const response = await axios.get('https://api.dookeystats.com/wallet/' + data.address);
         const json = await response.data;
         results = json
+
+        ape_spent = results[0].boost_count * 2
+
+        const requestTxs = await axios.get('https://api.dookeystats.com/txs?address=' + data.address);
+        const transactions = await requestTxs.data.transactions;
+        txs = transactions
     }
     load()
     const tiers = {
@@ -16,6 +24,33 @@
         3: 'https://i.seadn.io/gcs/files/8c5610eeddb4f02ae570b42d8a7a2ac4.jpg?auto=format&w=150',
         4: 'https://i.seadn.io/gcs/files/67bd361f7ab978091c2e2334388b975c.jpg?auto=format&w=150',
     }
+    function timeSince(date) {
+
+var seconds = Math.floor((new Date() - date) / 1000);
+
+var interval = seconds / 31536000;
+
+if (interval > 1) {
+  return Math.floor(interval) + " years";
+}
+interval = seconds / 2592000;
+if (interval > 1) {
+  return Math.floor(interval) + " months";
+}
+interval = seconds / 86400;
+if (interval > 1) {
+  return Math.floor(interval) + (interval < 2 ? " day" : " days");
+}
+interval = seconds / 3600;
+if (interval > 1) {
+  return Math.floor(interval) + (interval < 2 ? " hour" : " hours");
+}
+interval = seconds / 60;
+if (interval > 1) {
+  return Math.floor(interval) + " minutes";
+}
+return Math.floor(seconds) + " seconds";
+}
 </script>
 
 <style>
@@ -166,5 +201,31 @@ a.button:hover {
 
 </div>
 </li>
+</div>
+{/each}
+
+
+<center style="padding-top: 20px;"><h1>Boost Transactions</h1></center>
+
+<center>
+   Transactions found: 
+    <span style="color: white;">{txs.length}</span>
+</center>
+<center style="padding-bottom: 30px;">
+    $APE Spent: 
+     <span style="color: white;">{ape_spent}</span>
+ </center>
+
+{#each txs as tx, i}
+<div class="center">
+    <center>
+    <a href={`https://etherscan.io/tx/${tx.hash}`} target="_blank" title="View on Etherscan">
+    <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
+        <div style="display:table; padding: 10px;">
+        <span style="padding-right: 10px;">{timeSince(tx._timestamp)} ago</span><br> {tx.value/2} BOOSTS <span style="font-size: 12px;">({tx.value} $APE)</span>
+        </div>
+</li>
+</a>
+</center>
 </div>
 {/each}
