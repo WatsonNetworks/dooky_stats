@@ -89,6 +89,8 @@ a {
     }
 
     a.button {
+  margin-top: 20px;
+  font-size: 20px;
   display: block;
   max-width: 190px;
   text-decoration: none;
@@ -110,12 +112,17 @@ a.button:hover {
 </style>
 
 <center style="padding-bottom: 30px;">
+   <a href="/" class="button">Return to all results</a>
+</center>
+
+<center style="padding-bottom: 30px;">
     Player accounts for wallet<br>
     <span style="color: white;">{data.address}</span>
 </center>
 
 <center style="padding-bottom: 30px;">
-   <a href="/" class="button">Return to all results</a>
+    Player accounts found: 
+    <span style="color: white;">{results.length}</span>
 </center>
 
 {#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
