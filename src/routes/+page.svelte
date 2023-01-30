@@ -233,7 +233,7 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <a href="https://twitter.com/DookeyDashBoost" target="_blank">
       <img src="/boost_ad_1.gif" style="width: 100%;"/>
       </a>
-      <span style="text-align: right; padding-top: 5px;">#AD</span>
+      <span style="text-align: right; padding-top: 2px;">#AD</span>
     </div>
 <br><br>
     Score: <select on:change="{toggle}">
