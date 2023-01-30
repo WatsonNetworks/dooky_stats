@@ -282,11 +282,10 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <span class="data" style="display:table-cell; vertical-align:middle; font-size: 20px; padding-left: 25px;">{score.toLocaleString("en-US")} Points<br>
         
     {#if username }<span style="font-size: 15px; text-decoration: bold">
-        {#if username == 'BitBoyJay' }<img src="/salute.svg" width="15px" style="justify-content: center; align-items: center;">{/if}
-        <a target="_blank" title="view pass holder" rel="noreferrer" href="https://opensea.io/{address}" style="text-decoration: underline; color: rgba(255, 255, 255, 0.7); font-size: 15px;"><p id="username">{username}</p></a>
+        <p id="username">{username}</p>
     </span><br>{/if}
     {#if !username }<span style="font-size: 15px; text-decoration: bold">
-        <a target="_blank" title="view pass holder" rel="noreferrer" href="https://etherscan.io/address/{address}" style="text-decoration: underline; color: rgba(255, 255, 255, 0.7); font-size: 15px;"><p id="username">View Wallet</p></a>
+        <p id="username">View Wallet</p>
     </span><br>{/if}
     <!-- (${ ((boost_count * 2)*5.80).toFixed()}) -->
     <span style="font-size: 15px;">Boosted: {boost_count ? boost_count : 0} times </span><br>
