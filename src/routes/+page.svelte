@@ -229,7 +229,12 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <span class="pink">TIER 3:</span> {tierStats[3]}<br>
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
-<a href="https://twitter.com/geeken" target="_blank"><img src="/ad.png" width="300px;" style="border-radius: 10px;"></a>
+    <div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
+    <a href="https://twitter.com/DookeyDashBoost" target="_blank">
+      <img src="/boost_ad_1.gif" style="width: 100%;"/>
+      </a>
+      <span style="text-align: right; padding-top: 5px;">#AD</span>
+    </div>
 <br><br>
     Score: <select on:change="{toggle}">
 		{#each filters as filter}
