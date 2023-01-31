@@ -1,5 +1,8 @@
 import { redirect } from '@sveltejs/kit';
- 
- export function load() {
+import axios from 'axios';
+
+
+ export async function load() {
+   await axios.get('https://api.dookeystats.com/ad/click');
    throw redirect(302, 'https://twitter.com/DookeyDashBoost');
  }
