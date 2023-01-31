@@ -41,6 +41,10 @@
             console.log(error)
         }
     }
+    async function linkClick(){
+        const response = await axios.get('https://api.dookeystats.com/link/click');
+        window.open('https://twitter.com/DookeyDashBoost', '_blank');
+    }
     let boosts = {}
     async function loadResults(){
         const response = await axios.get('https://api.dookeystats.com/top500')
@@ -154,6 +158,9 @@
         transition: background 0.3s, box-shadow 0.3s;
         cursor: pointer;
     }
+    .linkButton{
+        cursor: pointer;
+    }
     .link {
   color: hotpink;
   text-decoration: none;
@@ -230,7 +237,7 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
     <div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
-    <a href="/ad" target="_blank">
+    <a class="linkButton" on:click={linkClick}>
       <img src="/boost_ad_2.gif" style="width: 100%;"/>
       </a>
       <span style="text-align: right; padding-top: 2px;">#AD</span>
