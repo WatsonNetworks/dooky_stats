@@ -230,8 +230,8 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
     <div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
-    <a href="https://twitter.com/DookeyDashBoost" target="_blank">
-      <img src="/boost_ad_1.gif" style="width: 100%;"/>
+    <a href="/ad" target="_blank">
+      <img src="/boost_ad_2.gif" style="width: 100%;"/>
       </a>
       <span style="text-align: right; padding-top: 2px;">#AD</span>
     </div>
