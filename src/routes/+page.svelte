@@ -6,6 +6,7 @@
     let boostData = {boosts: 0, tokens: 0}
     let apeSelect = 'ALL'
     let searchTerm = ''
+    let passTerm = ''
 
     let filters = [
         {id: 0, text: 'Highest First'},
@@ -76,6 +77,11 @@
     async function search(){
         const response = await axios.get(`https://api.dookeystats.com/wallet/${searchTerm}`)
         results = response.data
+    }
+    async function searchPass(){
+        const response = await axios.get(`https://api.dookeystats.com/pass/${passTerm}`)
+        results = []
+        results.push(response.data)
     }
     function resetSearch(){
         searchTerm = ''
@@ -267,13 +273,15 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     <br><br>
     Wallet: <input width="50%" type="text" bind:value={searchTerm} placeholder="Search by wallet"/><button on:click={search}>Search</button><button on:click={resetSearch}>Reset</button>
     <br><br>
+    PassID: <input width="20%" type="text" bind:value={passTerm} placeholder="Search by pass"/><button on:click={searchPass}>Search</button><button on:click={resetSearch}>Reset</button>
+    <br><br>
 </center>
 
 {#if results.length < 1 }
 <center><h1>NO MATCH FOUND</h1></center>
 {/if}
 
-{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
+{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username, pass_id}, i}
 <div class="center resultItem">
 <a href={`/player/${address}`} title="View Player Data">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
@@ -301,7 +309,7 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
     </span><br>{/if}
     <!-- (${ ((boost_count * 2)*5.80).toFixed()}) -->
     <span style="font-size: 15px;">Boosted: {boost_count ? boost_count : 0} times </span><br>
-    <span style="font-size: 15px;">{ape_type.toUpperCase()} #{ape_id}</span>
+    <span style="font-size: 15px;">Pass ID: {pass_id}</span>
 
 
     <MediaQuery query="(max-width: 480px)" let:matches>
@@ -317,3 +325,4 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
 </a>
 </div>
 {/each}
+<br><br><br><br><br><br><br><br>

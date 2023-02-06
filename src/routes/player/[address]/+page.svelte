@@ -160,7 +160,7 @@ a.button:hover {
     <span style="color: white;">{results.length}</span>
 </center>
 
-{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username}, i}
+{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username, pass_id}, i}
 <div class="center">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
     <div style="display:table;">
@@ -188,7 +188,7 @@ a.button:hover {
     </span><br>{/if}
     <!-- (${ ((boost_count * 2)*5.80).toFixed()}) -->
     <span style="font-size: 15px;">Boosted: {boost_count ? boost_count : 0} times </span><br>
-    <span style="font-size: 15px;">{ape_type.toUpperCase()} #{ape_id}</span>
+    <span style="font-size: 15px;">Pass ID: {pass_id}</span>
 
 
     <MediaQuery query="(max-width: 480px)" let:matches>
