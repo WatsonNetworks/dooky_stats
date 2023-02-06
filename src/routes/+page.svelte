@@ -85,6 +85,7 @@
     }
     function resetSearch(){
         searchTerm = ''
+        passTerm = ''
         loadResults()
     }
     async function toggle(){
