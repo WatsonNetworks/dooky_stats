@@ -43,7 +43,7 @@
     }
     async function linkClick(){
         const response = await axios.get('https://api.dookeystats.com/link/click');
-        window.open('https://twitter.com/camolNFT', '_blank');
+        window.open('https://twitter.com/dookey_boost', '_blank');
     }
     let boosts = {}
     async function loadResults(){
@@ -238,7 +238,7 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
 <br><br>
     <div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
     <a class="linkButton" on:click={linkClick}>
-      <img src="/camol2.png" style="width: 100%;"/>
+      <img src="/final.png" style="width: 100%;"/>
       </a>
       <span style="text-align: right; padding-top: 2px;">#AD</span>
     </div>
