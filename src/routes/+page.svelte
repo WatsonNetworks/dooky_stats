@@ -238,7 +238,7 @@ Looking for a stream overlay with your stats? <a class="link" href="https://twit
 <br><br>
     <div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
     <a class="linkButton" href="https://twitter.com/dookey_boost" target="_blank">
-      <img src="/final.png" style="width: 100%;"/>
+      <img src="/orangie.gif" style="width: 100%;"/>
       </a>
       <span style="text-align: right; padding-top: 2px;">#AD</span>
     </div>
