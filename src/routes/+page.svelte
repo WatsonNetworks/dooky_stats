@@ -281,7 +281,7 @@ Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsh
     <br><br>
     Wallet: <input width="50%" type="text" bind:value={searchTerm} placeholder="Search by wallet"/><button on:click={search}>Search</button><button on:click={resetSearch}>Reset</button>
     <br><br>
-    PassID: <input width="20%" type="text" bind:value={passTerm} placeholder="Search by pass"/><button on:click={searchPass}>Search</button><button on:click={resetSearch}>Reset</button>
+    PassID: <input width="20%" type="text" on:keyup={e=>e.key==='Enter' && searchPass()} bind:value={passTerm} placeholder="Search by pass"/><button on:click={searchPass}>Search</button><button on:click={resetSearch}>Reset</button>
     <br><br>
 </center>
 
