@@ -222,7 +222,7 @@ a {
         If you purchase a sewer pass between now and then, there's a risk the score may be invalidated.</h3>
 <h1 style="margin: 0px;">Realtime Dookey Stats</h1><br>
 Created by: <a class="link" href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
-Looking for a stream overlay with your stats? <a class="link" href="https://twitter.com/geeken/status/1618190648871628800" target="_blank">Click Here</a>
+Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsheets/d/1_vNXMMj1GM5gGSYf8yqa9_vCYXepL4Mjqxmq0D6cvzM/edit?usp=sharing" target="_blank">Click Here</a>
 </center>
 <br>
 <center>
