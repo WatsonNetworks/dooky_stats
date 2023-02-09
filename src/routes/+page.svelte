@@ -219,7 +219,7 @@ a {
 </style>
 <center>
     <h3 style="background: rgba(255,255,255,0.3);">REMINDER: Yuga is currently reviewing scores and they will be finalized on the 10th.<br> 
-        If you purchase a sewer pass between now and then, there's a risk the score may be invalided.</h3>
+        If you purchase a sewer pass between now and then, there's a risk the score may be invalidated.</h3>
 <h1 style="margin: 0px;">Realtime Dookey Stats</h1><br>
 Created by: <a class="link" href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
 Looking for a stream overlay with your stats? <a class="link" href="https://twitter.com/geeken/status/1618190648871628800" target="_blank">Click Here</a>
