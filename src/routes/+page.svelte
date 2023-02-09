@@ -246,6 +246,13 @@ Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsh
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
 <br><br>
 
+<div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
+    <a class="linkButton" href="https://app.manifold.xyz/c/PROOFOFSIMP" target="_blank">
+      <img src="/open.png" style="width: 100%;"/>
+      </a>
+      <span style="text-align: right; padding-top: 2px;">^ If you've enjoyed using this site</span>
+    </div>
+    <br><br>
     Score: <select on:change="{toggle}">
 		{#each filters as filter}
 			<option value={filter}>
