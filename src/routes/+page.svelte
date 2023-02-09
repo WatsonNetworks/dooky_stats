@@ -80,8 +80,12 @@
     }
     async function searchPass(){
         const response = await axios.get(`https://api.dookeystats.com/pass/${passTerm}`)
-        results = []
-        results.push(response.data)
+        if(response.data.rank){
+            results = []
+            results.push(response.data)
+        } else {
+            results = []
+        }
     }
     function resetSearch(){
         searchTerm = ''
@@ -124,7 +128,7 @@
         results = response.data
     }
     // Interval to load data
-    setInterval(load, 1000)
+    load()
     loadResults()
 
  
