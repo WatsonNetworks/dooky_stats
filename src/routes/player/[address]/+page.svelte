@@ -162,6 +162,7 @@ a.button:hover {
 
 {#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username, pass_id}, i}
 <div class="center">
+<a href={"https://opensea.io/assets/ethereum/0x764aeebcf425d56800ef2c84f2578689415a2daa/"+ pass_id} target="_blank" title="View on OpenSea">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
     <div style="display:table;">
         <span style="font-size: 50px; display:table-cell; vertical-align:middle;">
@@ -201,6 +202,7 @@ a.button:hover {
 
 </div>
 </li>
+</a>
 </div>
 {/each}
 
