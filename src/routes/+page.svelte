@@ -297,11 +297,11 @@ Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsh
     {/if}
 </MediaQuery>
     <span class="data" style="display:table-cell; vertical-align:middle; font-size: 15px; padding-left: 25px;">
-        {#if meta && meta.attributes[2].value !=="N/A"}<span class="rank" style="font-size: 15px;">{meta.attributes[2].value.toLocaleString("en-US")} - Validated Rank</span><br>{/if}
-        {#if meta && meta.attributes[2].value =="N/A"}<span class="rank" style="font-size: 15px;">RANK WIPED</span><br>{/if}
+        {#if meta && meta.attributes[2].value !=="N/A"}<span class="rank" style="color: #08e808; font-size: 15px;">{meta.attributes[2].value.toLocaleString("en-US")} - Validated Rank</span><br>{/if}
+        {#if meta && meta.attributes[2].value =="N/A"}<span class="rank" style="font-size: 15px;color: #ff0101">RANK WIPED</span><br>{/if}
         {score.toLocaleString("en-US")} - Score<br>
-        {#if meta && meta.attributes[1].value !== "N/A"}{meta.attributes[1].value.toLocaleString("en-US")} - Validated Score<br>{/if}
-        {#if meta && meta.attributes[1].value == "N/A"}SCORE WIPED<br>{/if}
+        {#if meta && meta.attributes[1].value !== "N/A"}<span style="color: #08e808">{meta.attributes[1].value.toLocaleString("en-US")} - Validated Score</span><br>{/if}
+        {#if meta && meta.attributes[1].value == "N/A"}<span style="color: #ff0101">SCORE WIPED</span><br>{/if}
     {#if username }<span style="font-size: 15px; text-decoration: bold">
         <p id="username">{username}</p>
     </span><br>{/if}
