@@ -222,8 +222,8 @@ a {
     }
 </style>
 <center>
-    <h3 style="background: rgba(255,255,255,0.3);">REMINDER: Yuga is currently reviewing scores and they will be finalized on the 10th.<br> 
-        If you purchase a sewer pass between now and then, there's a risk the score may be invalidated.</h3>
+    <!-- <h3 style="background: rgba(255,255,255,0.3);">REMINDER: Yuga is currently reviewing scores and they will be finalized on the 10th.<br> 
+        If you purchase a sewer pass between now and then, there's a risk the score may be invalidated.</h3> -->
 <h1 style="margin: 0px;">Realtime Dookey Stats</h1><br>
 Created by: <a class="link" href="https://twitter.com/geeken" target="_blank">@Geeken</a><br>Enjoying this site? Please support: <span style="color: white;">geeken.eth</span><br>
 Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsheets/d/1_vNXMMj1GM5gGSYf8yqa9_vCYXepL4Mjqxmq0D6cvzM/edit?usp=sharing" target="_blank">Click Here</a>
@@ -248,14 +248,6 @@ Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsh
    <span class="pink">TIER 2:</span> {tierStats[2]} <br>
     <span class="pink">TIER 3:</span> {tierStats[3]}<br>
     <span class="pink">&nbsp; TIER 4:</span> {tierStats[4]}
-<br><br>
-
-<div style="width: 400px; display: flex; flex-direction: column; max-width: calc(100vw - 18px);">
-    <a class="linkButton" href="https://app.manifold.xyz/c/PROOFOFSIMP" target="_blank">
-      <img src="/open.png" style="width: 100%;"/>
-      </a>
-      <span style="text-align: right; padding-top: 2px;">^ If you've enjoyed using this site</span>
-    </div>
     <br><br>
     Score: <select on:change="{toggle}">
 		{#each filters as filter}
@@ -289,31 +281,32 @@ Looking for the raw data? <a class="link" href="https://docs.google.com/spreadsh
 <center><h1>NO MATCH FOUND</h1></center>
 {/if}
 
-{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username, pass_id}, i}
+{#each results as { address, tier, rank, score, ape_type, ape_img, ape_id, boost_count, username, pass_id, meta}, i}
 <div class="center resultItem">
 <a href={`/player/${address}`} title="View Player Data">
 <li style="list-style: none; background: rgba(103, 58, 183, 0.8); margin-bottom: 5px; border-radius: 30px;">
     <div style="display:table;">
         <span style="font-size: 50px; display:table-cell; vertical-align:middle;">
-            {#if rank < 10}<span class="rank" style="padding-left: 25px; padding-right: 25px; font-size: 35px;">{rank.toLocaleString("en-US")}</span>{/if}
+            {#if rank < 10}<span class="rank" style="padding-left: 25px; padding-right: 25px; font-size: 35px;">{rank.toLocaleString("en-US")}</span> {/if}
             {#if rank >= 10}<span class="rank" style="padding-left: 10px; padding-right: 10px; font-size: 35px;">{rank.toLocaleString("en-US")}</span>{/if}
         </span> 
-    <span>
-        <img width="100px" style="margin-right: 15px;" src={ape_img}>
-    </span>
     
     <MediaQuery query="(max-width: 480px)" let:matches>
         {#if !matches}
-    <img style="margin-left: -15px; border-radius: 5px;" width="100px" src={tiers[tier]}>
+    <img style="border-radius: 5px;" height="130px" src={tiers[tier]}>
     {/if}
 </MediaQuery>
-    <span class="data" style="display:table-cell; vertical-align:middle; font-size: 20px; padding-left: 25px;">{score.toLocaleString("en-US")} Points<br>
-        
+    <span class="data" style="display:table-cell; vertical-align:middle; font-size: 15px; padding-left: 25px;">
+        {#if meta && meta.attributes[2].value !=="N/A"}<span class="rank" style="font-size: 15px;">{meta.attributes[2].value.toLocaleString("en-US")} - Validated Rank</span><br>{/if}
+        {#if meta && meta.attributes[2].value =="N/A"}<span class="rank" style="font-size: 15px;">RANK WAS WIPED</span><br>{/if}
+        {score.toLocaleString("en-US")} - Score<br>
+        {#if meta && meta.attributes[1].value !== "N/A"}{meta.attributes[1].value.toLocaleString("en-US")} - Validated Score<br>{/if}
+        {#if meta && meta.attributes[1].value == "N/A"}SCORE WIPED<br>{/if}
     {#if username }<span style="font-size: 15px; text-decoration: bold">
         <p id="username">{username}</p>
     </span><br>{/if}
     {#if !username }<span style="font-size: 15px; text-decoration: bold">
-        <p id="username">View Wallet</p>
+        <p id="username">NO_USERNAME</p>
     </span><br>{/if}
     <!-- (${ ((boost_count * 2)*5.80).toFixed()}) -->
     <span style="font-size: 15px;">Boosted: {boost_count ? boost_count : 0} times </span><br>
